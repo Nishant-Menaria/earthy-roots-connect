@@ -1,15 +1,16 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { ArrowLeft, MessageCircle, Check } from "lucide-react";
+import { ArrowLeft, ShoppingCart, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { products } from "@/data/products";
-import { toast } from "sonner";
+import { useCart } from "@/contexts/CartContext";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { addToCart } = useCart();
   const product = products.find((p) => p.id === id);
 
   if (!product) {
@@ -25,11 +26,8 @@ const ProductDetail = () => {
     );
   }
 
-  const handleWhatsAppClick = () => {
-    const message = `Hi, I'm interested in buying ${product.name}. Please share more details.`;
-    const whatsappUrl = `https://wa.me/91XXXXXXXXXX?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, "_blank");
-    toast.success("Opening WhatsApp...");
+  const handleAddToCart = () => {
+    addToCart(product);
   };
 
   return (
@@ -76,19 +74,23 @@ const ProductDetail = () => {
               </p>
             </div>
 
-            <div className="flex items-baseline gap-3">
-              <span className="text-4xl font-bold text-primary">₹{product.price}</span>
-              <span className="text-sm text-muted-foreground">per pack</span>
-            </div>
+            <Card className="bg-muted/50">
+              <CardContent className="pt-6">
+                <p className="text-sm text-muted-foreground text-center">
+                  💡 Pricing depends on quantity ordered and applicable discounts.
+                  Add to cart and contact us for personalized pricing!
+                </p>
+              </CardContent>
+            </Card>
 
-            {/* WhatsApp Button */}
+            {/* Add to Cart Button */}
             <Button
               size="lg"
-              onClick={handleWhatsAppClick}
-              className="w-full bg-[#25D366] hover:bg-[#1fb854] text-white"
+              onClick={handleAddToCart}
+              className="w-full"
             >
-              <MessageCircle className="mr-2 h-5 w-5" />
-              Contact on WhatsApp
+              <ShoppingCart className="mr-2 h-5 w-5" />
+              Add to Cart
             </Button>
 
             <Separator />
@@ -143,14 +145,14 @@ const ProductDetail = () => {
               </CardContent>
             </Card>
 
-            {/* Bottom WhatsApp Button */}
+            {/* Bottom Add to Cart Button */}
             <Button
               size="lg"
-              onClick={handleWhatsAppClick}
-              className="w-full bg-[#25D366] hover:bg-[#1fb854] text-white"
+              onClick={handleAddToCart}
+              className="w-full"
             >
-              <MessageCircle className="mr-2 h-5 w-5" />
-              Order via WhatsApp
+              <ShoppingCart className="mr-2 h-5 w-5" />
+              Add to Cart
             </Button>
           </div>
         </div>
