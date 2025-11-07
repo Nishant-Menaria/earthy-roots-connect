@@ -48,7 +48,7 @@ const ProductDetail = () => {
           <div className="space-y-4 animate-fade-in">
             <div className="relative aspect-square rounded-2xl overflow-hidden bg-muted">
               <img
-                src={product.image}
+                src={`/${product.image}`}
                 alt={product.name}
                 className="w-full h-full object-cover"
               />
