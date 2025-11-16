@@ -12,7 +12,7 @@ const Contact = () => {
   };
 
   const handleEmailClick = () => {
-    window.location.href = "mailto:contact@ayurveda.com";
+    window.location.href = "mailto:ssherbal000@gmail.com";
   };
 
   return (
@@ -67,7 +67,7 @@ const Contact = () => {
                   <p className="text-muted-foreground">
                     Send us a detailed message and we'll get back to you within 24 hours.
                   </p>
-                  <p className="text-lg font-semibold text-foreground">contact@ayurveda.com</p>
+                  <p className="text-lg font-semibold text-foreground">ssherbal000@gmail.com</p>
                 </div>
                 <Button
                   size="lg"
