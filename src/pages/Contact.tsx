@@ -6,7 +6,7 @@ import { toast } from "sonner";
 const Contact = () => {
   const handleWhatsAppClick = () => {
     const message = "Hi, I'd like to know more about your Ayurvedic products.";
-    const whatsappUrl = `https://wa.me/91XXXXXXXXXX?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/916376919947?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
     toast.success("Opening WhatsApp...");
   };
@@ -90,7 +90,7 @@ const Contact = () => {
                   <Phone className="h-8 w-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold text-foreground">Phone</h3>
-                <p className="text-muted-foreground">+91 XXXXX XXXXX</p>
+                <p className="text-muted-foreground">+91 6376919947</p>
                 <p className="text-sm text-muted-foreground">Mon - Sat: 9:00 AM - 7:00 PM</p>
               </CardContent>
             </Card>
